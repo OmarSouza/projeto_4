@@ -9,7 +9,7 @@ function SignIn({ navigation }) {
                 <Image source={require('../../assets/logo.png')} style={styles.logoSignIn} />
 
                 <View style={styles.containerInputSignIn}>
-                    <Text>Usuario: </Text>
+                    <Text>User: </Text>
                     <TextInput style={styles.textInputSignIn}/>
 
                     <Text>Senha: </Text>
