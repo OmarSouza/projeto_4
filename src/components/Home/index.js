@@ -6,14 +6,14 @@ import { NavigationContainer } from '@react-navigation/native'
 function Home({ navigation }) {
     return (
         <View>
-            <Text>Sing In Screen</Text>
+            <Text>Sign In Screen</Text>
             <Button
                 title='Home'
-                onPress={() => navigation.navigate('')}  
+                onPress={() => navigation.navigate('')}
             />
             <Button
                 title='SignUp'
-                onPress={() => navigation.navigate('SignUp')}  
+                onPress={() => navigation.navigate('SignUp')}
             />
         </View>
     );
