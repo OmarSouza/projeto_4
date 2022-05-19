@@ -1,43 +1,42 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, TouchableOpacity, StyleSheet, Image, TextInput } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
 
-class SignIn extends React.Component {
-    render() {
-        return (
-            <View style={styles.componentSignIn}>
-                <StatusBar style='auto'/>
+function SignIn({navigation}) {
+    return (
+        <View style={styles.componentSignIn}>
+            <StatusBar style='auto' />
 
-                <View style={styles.containerSignInLogo}>
-                    <Image source={require('../../assets/logo.png')} style={styles.logoSignIn} />
-                </View>
+            <View style={styles.containerSignInLogo}>
+                <Image source={require('../../assets/logo.png')} style={styles.logoSignIn} />
+            </View>
 
-                <View style={styles.containerSignInForm}>
+            <View style={styles.containerSignInForm}>
 
-                    <View style={styles.formSignIn}>
-                        <Text style={styles.textSignIn}>Usuario: </Text>
-                        <TextInput 
+                <View style={styles.formSignIn}>
+                    <Text style={styles.textSignIn}>Usuario: </Text>
+                    <TextInput
                         style={styles.inputSignIn}
-                        autoComplete={'off'}                        
-                        />
+                        autoComplete={'off'}
+                    />
 
-                        <Text style={styles.textSignIn}>Senha: </Text>
-                        <TextInput style={styles.inputSignIn} autoComplete={'off'} secureTextEntry={true}/>
+                    <Text style={styles.textSignIn}>Senha: </Text>
+                    <TextInput style={styles.inputSignIn} autoComplete={'off'} secureTextEntry={true} />
 
-                        <View style={styles.grupoBotao}>
-                            <TouchableOpacity style={styles.botaoSignInAcessar}>
-                                <Text>Acessar</Text>
-                            </TouchableOpacity>
+                    <View style={styles.grupoBotao}>
+                        <TouchableOpacity style={styles.botaoSignInAcessar} onPress={() => navigation.navigate('Home')}>
+                            <Text style={styles.textBtnAcessar}>Acessar</Text>
+                        </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.botaoSignInCadastrar}>
-                                <Text>Cadastrar</Text>
-                            </TouchableOpacity>
-                        </View>
+                        <TouchableOpacity style={styles.botaoSignInCadastrar} onPress={() => navigation.navigate('Cadastro')}>
+                            <Text style={styles.textBtnCadastrar}>Cadastrar</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
-        );
-    }
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -92,15 +91,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#3b78ac',
         height: 45,
-        width: 180
+        width: 180,
+        borderRadius: 10,
     },
 
     botaoSignInCadastrar: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3b78ac',
         height: 45,
-        width: 180
+        width: 180,
+        borderWidth: 1,
+        borderRadius: 10
     },
+
+    textBtnAcessar: {
+        fontSize: 20,
+        color: '#FFF'
+    },
+
+    textBtnCadastrar: {
+        fontSize: 20
+    }
 });
 export default SignIn;
